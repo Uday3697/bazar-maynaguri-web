@@ -787,7 +787,7 @@ p{
 .two_in_one{
 	width: 100%;
 	/* position: fixed; */
-	/* z-index: 99999; */
+	z-index: 99999;
 	-webkit-transition: padding .5s linear;
 	transition: padding .5s linear;
 	

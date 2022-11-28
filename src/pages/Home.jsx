@@ -7,12 +7,8 @@ import Header from '../Components/Header'
 const Home = () => {
     return (
         <>
-            <Header />
+            <section style={{position:'fixed',zIndex:'9999'}}><Header /></section>
             <div class="wrapper">
-
-
-
-
                 <section class="banner">
                     <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -495,7 +491,7 @@ const Home = () => {
             })} */}
 
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
 
 
