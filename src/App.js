@@ -12,17 +12,18 @@ import axios from 'axios';
 
 
 function App() {
-  const [loginData, setLoginData] = useState({});
+  const [loginData, setLoginData] = useState("");
   const [login, setLogin] = useState(false);
   const [userEmail, setUserEmail] = useState("")
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState("")
 
   const value = {
     setUserEmail,
     loginData,
     setLoginData,
     login,
-    setUser
+    setUser,
+    user,
   }
 
 
@@ -44,9 +45,10 @@ function App() {
           console.log(res.data, "jhffjy");
 
 
-          localStorage.setItem("user", JSON.stringify(res.data.userdata));
+          localStorage.setItem("user", JSON.stringify(res.data.result.userdata));
           setUser(res.data.result.userdata.name);
-          console.log("iiiiiiiiii", user)
+          setUserEmail(res.data.result.userdata.email)
+          
         }
       });
   }, []);
@@ -61,7 +63,7 @@ function App() {
           <Routes><Route exact path="/signup" element={<Signup />} /></Routes>
           <Routes><Route exact path="/edit" element={<EditProfile />} /></Routes>
           <Routes><Route exact path="/search" element={<SearchPage />} /></Routes>
-          <Routes> <Route exact path="/" element={loginData !== null ? <Home /> : <Navigate to="/login" />} /></Routes>
+          <Routes> <Route exact path="/*" element={localStorage.getItem('user') !== null ? <Home /> : <Navigate to="/login" />} /></Routes>
       
 
 
