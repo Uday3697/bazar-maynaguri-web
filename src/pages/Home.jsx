@@ -2,7 +2,6 @@ import React from 'react'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 
-// import offCanvasNav from './js/off_canvas_nav'
 
 const Home = () => {
     return (
@@ -27,6 +26,7 @@ const Home = () => {
                         <div class="carousel-inner">
 
                             <div class="carousel-item active">
+                                
                                 <img src="assets/images/banner1.jpg" alt="" />
                                 <div class="container">
                                     <div class="row res_padd">
@@ -40,7 +40,7 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="carousel-item">
                                 <img src="assets/images/banner2.jpg" alt="" />
                                 <div class="container">

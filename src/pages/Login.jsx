@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
+import { GlobalContex } from '../globalContex'
+import axios from 'axios'
 
-
-async function loginUser(credentials) {
-    return fetch('https://phpwebdevelopmentservices.com/project-react-backend/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => data.json())
-}
 
 const Login = () => {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-    const handleSubmit = async e => {
-        e.preventDefault();
-        // window.alert(username,password)
-        const response = await loginUser({
-            username,
-            password,
-        });
-        if ('accessToken' in response) {
-            window.alert(("Success", response.message, "success", {
-                buttons: false,
-                timer: 2000,
-            }))
-                .then((value) => {
-                    localStorage.setItem('accessToken', response['accessToken']);
-                    localStorage.setItem('user', JSON.stringify(response['user']));
-                    window.location.href = "/profile";
-                });
-        } else {
-            window.alert(("Failed", response.message, "error"));
-        }
-    }
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const {
+       
+        setUserEmail,
+        loginData,
+        setLoginData,
+    } = useContext(GlobalContex);
+
+    const handleLogin = () => {
+        setLoading(true);
+        axios
+            .post(`https://phpwebdevelopmentservices.com/project-react-backend/api/login`, {
+                email: email,
+                password: password,
+            })
+            .then((res) => {
+                if (res.data.status) {
+                    setLoading(false);
+                    setLoginData(res.data);
+                    localStorage.setItem("userEmailNew", res?.userdata.email);
+                    localStorage.setItem("loginData", JSON.stringify(res.data));
+                    setUserEmail(res?.data?.user?.email);
+                    console.log(res.data)
+                }
+            });
+    };
+
     return (
         <div>
             <section style={{ position: 'fixed', zIndex: '9999' }}><Header /></section>
@@ -51,7 +48,7 @@ const Login = () => {
                                     <h2>Sign In</h2>
                                     <div>
                                         <input type="text" className="login-type" placeholder="Email or mobile number" name=""
-                                            onChange={(e) => setUserName(e.target.value)} value={username}
+                                            onChange={(e) => setEmail(e.target.value)} value={email}
                                         />
                                         <div className="clearfix"></div>
                                     </div>
@@ -71,7 +68,7 @@ const Login = () => {
                                     </div>
                                     <p>By clicking Sign In or continue with Facebook or Google, you agree to all <a href=""> Terms of Service</a> and <a href="#"> Privacy Policy</a></p>
                                     <button type="submit"
-                                        onClick={handleSubmit}
+                                        onClick={handleLogin}
                                         className="login-submit">Sign In</button>
                                 </div>
                                 <div className="or-area">
@@ -90,15 +87,15 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="bottom-account-div">
-                                <p>Don't have an account? <a href="signup.html">Create Account</a></p>
+                                <p>Don't have an account? <a href="signup">Create Account</a></p>
                             </div>
                         </div>
                     </div>
                     <Footer />
                 </div>
-                </div>
-                </div>
-                )
+            </div>
+        </div>
+    )
 }
 
 export default Login
