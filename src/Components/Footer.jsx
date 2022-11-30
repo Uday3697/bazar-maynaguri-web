@@ -10,7 +10,7 @@ const Footer = () => {
                     <div class="row res_padd">
 
                         <div class="footer_lft">
-                            <a href="#"><img src="assets/images/logo1.png" alt="" /></a>
+                            <a href="/home"><img src="assets/images/logo1.png" alt="" /></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas sem tellus, ac consectetur mi gravida nunc sit amet ante vitae ante facilisis</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas sem tellus, ac consectetur mi </p>
                             <a href="#" class="moree">Read more <img src="assets/images/icon32.png" alt="" /></a>
@@ -21,10 +21,10 @@ const Footer = () => {
                             <div class="foot_01">
                                 <h4>Quick Links</h4>
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Bazer Maynaguri</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="/home">Home</a></li>
+                                    <li><a href="/home">About Bazer Maynaguri</a></li>
+                                    <li><a href="/login">Contact Us</a></li>
+                                    <li><a href="/login">FAQ</a></li>
                                 </ul>
                             </div>
 
@@ -73,8 +73,8 @@ const Footer = () => {
                             <p> &copy; Copyright 2020 bazermaynaguri.com  |   All Rights Reserved.</p>
                             <ul>
                                 <li>Follow us on :</li>
-                                <li><a href="#"><img src="assets/images/icon23.png" alt="" /></a></li>
-                                <li><a href="#"><img src="assets/images/icon25.png" alt="" /></a></li>
+                                <li><a href="/twitter"><img src="assets/images/icon23.png" alt="" /></a></li>
+                                <li><a href="/facebook"><img src="assets/images/icon25.png" alt="" /></a></li>
                             </ul>
 
                         </div>

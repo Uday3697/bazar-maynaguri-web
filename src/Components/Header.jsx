@@ -36,7 +36,7 @@ const Header = () => {
             <div className="middle_head">
                 <div className="container">
                     <div className="row res_padd">
-                        <span className="logo"><a href=" "><img src="assets/images/logo.png" alt="" /></a></span>
+                        <span className="logo"><a href="/home"><img src="assets/images/logo.png" alt="" /></a></span>
                         <div className="right_search ml-auto">
                             <div className="left_search">
                                 <form>
