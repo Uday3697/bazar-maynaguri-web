@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import Login from '../pages/Login';
 
 const Header = () => {
     const [scroll, setScroll] = useState(false);
@@ -204,8 +205,12 @@ const Header = () => {
                                             <a class="nav-link" href="#">Contact Us</a>
                                         </li>
 
-                                        <li class="nav-item">
+                                        <li className="nav-item">
                                             <a class="nav-link" href="#">Enquiry Us</a>
+                                        </li>
+                                        <li className="nav-item" style={{marginLeft:'300px'}}>
+                                            
+                                            <a className="nav-link" href={localStorage.getItem('user') == null ? <Login /> :"/edit"}>My Account</a>
                                         </li>
 
 
