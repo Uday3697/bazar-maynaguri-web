@@ -208,10 +208,10 @@ const Header = () => {
                                         <li className="nav-item">
                                             <a class="nav-link" href="#">Enquiry Us</a>
                                         </li>
-                                        <li className="nav-item" style={{marginLeft:'300px'}}>
+                                        {/* <li className="nav-item" style={{marginLeft:'300px'}}>
                                             
                                             <a className="nav-link" href={localStorage.getItem('user') == null ? <Login /> :"/edit"}>My Account</a>
-                                        </li>
+                                        </li> */}
 
 
                                     </ul>
