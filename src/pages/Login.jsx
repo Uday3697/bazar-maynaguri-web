@@ -72,20 +72,10 @@ const Login = () => {
                     email: formValues.email,
                     password: formValues.password,
                 }
-                //signup 
-                // {
-                //     "params": {
-                //         "name": "name",
-                //         "email": "user1@mail.com",
-                //         "phone": "9998887850",
-                //         "password": "PassWord12345",
-                //         "password_confirmation": "PassWord12345"
-                //     }
-                // }
+                
             })
             .then((res) => {
-                    // console.log("iiiiiiiiiii", res.data.result.userdata.email)
-                    // console.log(res.data.hasOwnProperty('error'))
+              
                     if (res.data.hasOwnProperty('result')) {
                         setLoading(false);
                         setLoginData(res.data.result.userdata);
