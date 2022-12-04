@@ -48,7 +48,7 @@ function App() {
           localStorage.setItem("user", JSON.stringify(res.data.result.userdata));
           setUser(res.data.result.userdata.name);
           setUserEmail(res.data.result.userdata.email)
-          
+
         }
       });
   }, []);
@@ -57,14 +57,15 @@ function App() {
       <GlobalContex.Provider value={value}>
         <BrowserRouter>
 
-          <Routes><Route exact path="/" element={<Home />} /></Routes>
-          <Routes><Route exact path="/home" element={<Home />} /></Routes>
-          <Routes><Route exact path="/login" element={<Login />} /></Routes>
-          <Routes><Route exact path="/signup" element={<Signup />} /></Routes>
-          <Routes><Route exact path="/edit" element={<EditProfile />} /></Routes>
-          <Routes><Route exact path="/search" element={<SearchPage />} /></Routes>
+          <Routes><Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/edit" element={<EditProfile />} />
+            <Route exact path="/search" element={<SearchPage />} />
+          </Routes>
           <Routes> <Route exact path="/*" element={localStorage.getItem('user') !== null ? <Home /> : <Navigate to="/login" />} /></Routes>
-      
+
 
 
 
